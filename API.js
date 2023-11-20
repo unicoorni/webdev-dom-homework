@@ -1,6 +1,8 @@
-import {renderCommentList} from "./render.js";
-import {addFormBtn, commentLoad,addForm,addFormName, addFormText, commentList,loadEl} from "./vars.js";
+import {renderCommentList,changeCommentList} from "./render.js";
+import {addFormBtn, commentLoad,addForm,addFormName, addFormText,loadEl} from "./vars.js";
+// убрала комментлист 
 
+  
 
 export function getCommentFetch() {
     return fetch("https://wedev-api.sky.pro/api/v1/unicorni/comments", {
@@ -18,16 +20,19 @@ export function getCommentFetch() {
         
       })
       .then((responseData)=> {
+  
         let appComments = responseData.comments.map((comment) => {
-            return {
-              user: comment.author.name,
-              userDate: new Date(comment.date),
-              userComment: comment.text,
-              isActiveLike: false,
-              likesCounter: comment.likes,
-            };
-      });
-      commentList = appComments;
+          return {
+            user: comment.author.name,
+            userDate: new Date(comment.date),
+            userComment: comment.text,
+            isActiveLike: false,
+            likesCounter: comment.likes,
+          };
+        });
+        changeCommentList(appComments);
+      // commentList = appComments;
+     
       renderCommentList();
       loadEl.classList.add('hidden');
       })

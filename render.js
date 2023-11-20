@@ -1,4 +1,8 @@
-import {commentList} from "./vars.js";
+export let commentList = [];
+
+export function changeCommentList(changingElement) {
+  commentList = changingElement;
+};
 
 
 export function renderCommentList() {
