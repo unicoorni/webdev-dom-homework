@@ -1,5 +1,5 @@
 import {renderCommentList} from "./render.js";
-import {addFormBtn, commentLoad,addForm,addFormName, addFormText, commentList  } from "./vars.js";
+import {addFormBtn, commentLoad,addForm,addFormName, addFormText, commentList,loadEl} from "./vars.js";
 
 
 export function getCommentFetch() {

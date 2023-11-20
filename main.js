@@ -5,7 +5,7 @@ import {addCommentBtn, likerFunction,replyCommentFunction} from "./click, like, 
 
 renderCommentList();
 getCommentFetch();
-addCommentFetch();
+// addCommentFetch();
 addCommentBtn();                  
 likerFunction();
 replyCommentFunction();

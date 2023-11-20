@@ -1,6 +1,6 @@
 import {addFormBtn, commentLoad,addForm,addFormName, addFormText  } from "./vars.js";
 import {renderCommentList} from "./render.js";
-
+import {addCommentFetch} from "./API.js";
 
 export function clickAddButton() {
 
@@ -18,6 +18,8 @@ export function clickAddButton() {
     }
     addFormBtn.disabled = true;
     
+    addCommentFetch();
+
     addForm.classList.add('hidden');
     commentLoad.classList.remove('hidden');
 }

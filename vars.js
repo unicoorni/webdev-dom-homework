@@ -5,7 +5,5 @@ const addFormText = document.querySelector('.add-form-text');
 const loadEl = document.querySelector('.load');
 const commentLoad = document.querySelector('.load-comment');
 let commentList = [];
-export {commentList};
 
-
-export {addForm, addFormBtn, addFormName, addFormText, loadEl, commentLoad};
+export {addForm, addFormBtn, addFormName, addFormText, loadEl, commentLoad, commentList};
