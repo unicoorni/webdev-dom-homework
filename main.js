@@ -1,14 +1,11 @@
-import {renderCommentList} from "./render.js";
-import {getCommentFetch, addCommentFetch} from "./API.js";
-import {addCommentBtn, likerFunction,replyCommentFunction} from "./click, like, reply.js";
+import { renderCommentList } from "./render.js";
+import { getCommentFetch } from "./API.js";
+import { addCommentBtn } from "./click, like, reply.js";
 
 
 renderCommentList();
 getCommentFetch();
-// addCommentFetch();
-addCommentBtn();                  
-likerFunction();
-replyCommentFunction();
-  
+addCommentBtn();
 
-  console.log("It works!");
+
+console.log("It works!");

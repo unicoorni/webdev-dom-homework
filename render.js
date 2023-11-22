@@ -1,3 +1,6 @@
+import { likerFunction, replyCommentFunction } from "./click, like, reply.js";
+
+
 export let commentList = [];
 
 export function changeCommentList(changingElement) {
@@ -6,12 +9,12 @@ export function changeCommentList(changingElement) {
 
 
 export function renderCommentList() {
-    let list = document.querySelector('.comments');
-    
-    let commentListHTML = commentList.map((comment, index) => {
+  let list = document.querySelector('.comments');
+
+  let commentListHTML = commentList.map((comment, index) => {
 
 
-        return `<li class="comment">
+    return `<li class="comment">
             <div class="comment-header">
               <div class = "userName">${comment.user}</div>
               <div>${comment.userDate.toLocaleString()}</div>
@@ -30,10 +33,13 @@ export function renderCommentList() {
               </div>
             </div>
           </li>`;
-      }).join('');
-   
-      list.innerHTML = commentListHTML;
-  
-    };
+  }).join('');
+
+  list.innerHTML = commentListHTML;
+  likerFunction();
+  replyCommentFunction();
+};
+
+
 
 
