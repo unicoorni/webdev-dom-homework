@@ -57,11 +57,15 @@ export function addCommentFetch() {
       if (response.status === 201) {
         
         return getCommentFetch();
-      } else if (response.status === 400) {
+      } 
+      
+      if (response.status === 400) {
         throw new Error('убедитесь в том, что все поля заполнены, ваше имя и текст комментария содережит больше трех символов');
 
-      } else {
-        throw new Error('Что-то пошло не так, попробуйте еще раз');
+      }
+      if (response.status === 500) {
+
+      throw new Error('Что-то пошло не так, попробуйте еще раз');
       }
 
     })
