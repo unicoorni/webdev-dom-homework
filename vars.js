@@ -5,9 +5,8 @@ const addFormText = document.querySelector('.add-form-text');
 const loadEl = document.querySelector('.load');
 const commentLoad = document.querySelector('.load-comment');
 
-const authNameFormElement = document.querySelector('.auth-form-name');
-const authFormPassElement = document.querySelector('.auth-form-pass');
+
 const authFormBtnElement = document.querySelector('.auth-form-button');
 
 
-export { addForm, addFormBtn, addFormName, addFormText, loadEl, commentLoad, authFormPassElement, authNameFormElement, authFormBtnElement };
+export { addForm, addFormBtn, addFormName, addFormText, loadEl, commentLoad, authFormBtnElement };

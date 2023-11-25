@@ -1,4 +1,4 @@
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, authFormBtnElement } from "./vars.js";
+import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
 import { renderCommentList, commentList } from "./render.js";
 import { addCommentFetch } from "./API.js";
 

@@ -1,13 +1,13 @@
 // import { autharization } from "./API.js";
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl, authFormPassElement, authNameFormElement } from "./vars.js";
+import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
 
 
 export function renderAutharizationForm() {
-    const authContainerElement = document.querySelector('.auth-container');
-    
+  const authContainerElement = document.querySelector('.auth-container');
 
 
-    const loginHtml = `<div class="auth-form">
+
+  const loginHtml = `<div class="auth-form">
     <input type="text" 
     maxlength="50" 
     class="auth-form-name" 
@@ -21,11 +21,12 @@ export function renderAutharizationForm() {
     </div>
   </div>`;
 
-    authContainerElement.innerHTML = loginHtml;
+  authContainerElement.innerHTML = loginHtml;
 };
 
 export function autharization() {
-
+  const authNameFormElement = document.querySelector('.auth-form-name');
+  const authFormPassElement = document.querySelector('.auth-form-pass');
   return fetch("https://wedev-api.sky.pro/api/user/login", {
 
     method: "POST",
@@ -34,29 +35,37 @@ export function autharization() {
       password: authFormPassElement.value,
     }),
   })
-  .then((response) => {
+    .then((response) => {
 
-    if (response.status === 201) {
-      return response.json;
-    } else if (response.status === 400) {
-      throw new Error('убедитесь в том, что все поля заполнены, ваше имя и текст комментария содережит больше трех символов');
+      if (response.status === 201) {
+        console.log(response.json);
+        return response.json;
+      } else if (response.status === 400) {
+        throw new Error('Неверный логин или пароль');
 
-    } else {
-      throw new Error('Что-то пошло не так, попробуйте еще раз');
-    }
+      } else {
+        throw new Error('Что-то пошло не так, попробуйте еще раз');
+      }
 
-  })
+    })
 
 }
 
 export function login() {
-const authFormBtnElement = document.querySelector('.auth-form-button');
-
-    authFormBtnElement.addEventListener('click', () => {
-      autharization({login: authNameFormElement.value,
-        password: authFormPassElement.value})
-      .then(responseData);
-      console.log(responseData);
-    });
-  }
+  const authFormBtnElement = document.querySelector('.auth-form-button');
+  const authNameFormElement = document.querySelector('.auth-form-name');
+  const authFormPassElement = document.querySelector('.auth-form-pass');
   
+  
+  authFormBtnElement.addEventListener('click', () => {
+    autharization({
+      login: authNameFormElement.value,
+      password: authFormPassElement.value
+    })
+      .then((responseData) => {
+        console.log(responseData);
+
+      });
+  });
+}
+

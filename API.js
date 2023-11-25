@@ -1,5 +1,5 @@
 import { renderCommentList, changeCommentList } from "./render.js";
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl, authFormPassElement, authNameFormElement } from "./vars.js";
+import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
 
 
 
