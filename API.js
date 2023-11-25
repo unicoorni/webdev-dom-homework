@@ -1,5 +1,5 @@
 import { renderCommentList, changeCommentList } from "./render.js";
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
+import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl, authFormPassElement, authNameFormElement } from "./vars.js";
 
 
 
@@ -7,10 +7,10 @@ import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } fr
 export function getCommentFetch() {
   return fetch("https://wedev-api.sky.pro/api/v1/unicorni/comments", {
     method: "GET",
+
   })
 
     .then((response) => {
-      console.log(response.status);
 
       if (response.status === 200) {
         return response.json();
@@ -36,7 +36,7 @@ export function getCommentFetch() {
       loadEl.classList.add('hidden');
     })
     .catch((error) => {
-      alert('Ошибка сервера, попробуйте еще раз');
+      alert(error);
     });
 
 }
@@ -55,7 +55,7 @@ export function addCommentFetch() {
     .then((response) => {
 
       if (response.status === 201) {
-        console.log(response.status);
+        
         return getCommentFetch();
       } else if (response.status === 400) {
         throw new Error('убедитесь в том, что все поля заполнены, ваше имя и текст комментария содережит больше трех символов');
@@ -75,6 +75,31 @@ export function addCommentFetch() {
 
     })
     .catch((error) => {
-      console.log('error');
+      alert(error);
     });
 }
+
+// export function autharization() {
+
+//   return fetch("https://wedev-api.sky.pro/api/user/login", {
+
+//     method: "POST",
+//     body: JSON.stringify({
+//       login: authNameFormElement.value,
+//       password: authFormPassElement.value,
+//     }),
+//   })
+//   .then((response) => {
+
+//     if (response.status === 201) {
+//       return response.json;
+//     } else if (response.status === 400) {
+//       throw new Error('убедитесь в том, что все поля заполнены, ваше имя и текст комментария содережит больше трех символов');
+
+//     } else {
+//       throw new Error('Что-то пошло не так, попробуйте еще раз');
+//     }
+
+//   })
+
+// }

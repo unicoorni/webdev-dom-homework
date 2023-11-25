@@ -1,4 +1,4 @@
-import { likerFunction, replyCommentFunction } from "./click, like, reply.js";
+import { likerFunction, replyCommentFunction } from "./eventListeners.js";
 
 
 export let commentList = [];

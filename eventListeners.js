@@ -1,4 +1,4 @@
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
+import { addFormBtn, commentLoad, addForm, addFormName, addFormText, authFormBtnElement } from "./vars.js";
 import { renderCommentList, commentList } from "./render.js";
 import { addCommentFetch } from "./API.js";
 
@@ -39,7 +39,6 @@ export function likerFunction() {
     likeButtonElement.addEventListener('click', (event) => {
       event.stopPropagation();
       const index = likeButtonElement.dataset.index;
-      console.log(index);
 
       if (commentList[index].isActiveLike === false) {
         commentList[index].isActiveLike = true;
@@ -67,9 +66,10 @@ export function replyCommentFunction() {
       event.stopPropagation();
       const index = commentReplyEl.dataset.index;
 
-      addFormText.value = `>${commentList[index].user} ${commentReplyEl.textContent}`
+      addFormText.value = `>${commentList[index].user} ${commentReplyEl.textContent}`;
 
       renderCommentList();
     });
   }
 };
+
