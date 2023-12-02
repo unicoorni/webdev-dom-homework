@@ -1,5 +1,5 @@
 // import { autharization } from "./API.js";
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
+// import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
 
 
 export function renderAutharizationForm() {
@@ -38,16 +38,22 @@ export function autharization() {
     .then((response) => {
 
       if (response.status === 201) {
-        console.log(response.json);
-        return response.json;
+
+        console.log(response.json());
+        return response.json();
+
       } else if (response.status === 400) {
+
         throw new Error('Неверный логин или пароль');
 
       } else {
+
         throw new Error('Что-то пошло не так, попробуйте еще раз');
       }
-
     })
+    .catch((error) => {
+      alert(error);
+    });
 
 }
 
@@ -58,14 +64,18 @@ export function login() {
   
   
   authFormBtnElement.addEventListener('click', () => {
-    autharization({
+    autharization(
+      {
       login: authNameFormElement.value,
-      password: authFormPassElement.value
-    })
+      password: authFormPassElement.value,
+    }
+    )
       .then((responseData) => {
-        console.log(responseData);
+      console.log(responseData);
 
       });
   });
 }
+
+
 
