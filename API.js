@@ -1,11 +1,18 @@
 import { renderCommentList, changeCommentList } from "./render.js";
 import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
 
+export let token;
 
+export const setToken = (newToken) => {
 
+  token = newToken;
+};
 
 export function getCommentFetch() {
-  return fetch("https://wedev-api.sky.pro/api/v1/unicorni/comments", {
+  return fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     method: "GET",
 
   })
@@ -44,9 +51,12 @@ export function getCommentFetch() {
 
 export function addCommentFetch() {
 
-  fetch("https://wedev-api.sky.pro/api/v1/unicorni/comments", {
+  fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
 
     method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify({
       text: addFormText.value,
       name: addFormName.value,
@@ -83,27 +93,4 @@ export function addCommentFetch() {
     });
 }
 
-// export function autharization() {
 
-//   return fetch("https://wedev-api.sky.pro/api/user/login", {
-
-//     method: "POST",
-//     body: JSON.stringify({
-//       login: authNameFormElement.value,
-//       password: authFormPassElement.value,
-//     }),
-//   })
-//   .then((response) => {
-
-//     if (response.status === 201) {
-//       return response.json;
-//     } else if (response.status === 400) {
-//       throw new Error('убедитесь в том, что все поля заполнены, ваше имя и текст комментария содережит больше трех символов');
-
-//     } else {
-//       throw new Error('Что-то пошло не так, попробуйте еще раз');
-//     }
-
-//   })
-
-// }

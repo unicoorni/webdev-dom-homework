@@ -1,11 +1,9 @@
-// import { autharization } from "./API.js";
 // import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
 
+import { setToken } from "./API";
 
 export function renderAutharizationForm() {
   const authContainerElement = document.querySelector('.auth-container');
-
-
 
   const loginHtml = `<div class="auth-form">
     <input type="text" 
@@ -39,7 +37,7 @@ export function autharization() {
 
       if (response.status === 201) {
 
-        console.log(response.json());
+        // console.log(response.json());
         return response.json();
 
       } else if (response.status === 400) {
@@ -51,6 +49,7 @@ export function autharization() {
         throw new Error('Что-то пошло не так, попробуйте еще раз');
       }
     })
+    
     .catch((error) => {
       alert(error);
     });
@@ -71,8 +70,9 @@ export function login() {
     }
     )
       .then((responseData) => {
-      console.log(responseData);
 
+        setToken(responseData.user.token);
+  
       });
   });
 }
