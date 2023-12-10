@@ -1,13 +1,15 @@
-import { renderCommentList } from "./render.js";
-import { getCommentFetch } from "./API.js";
+// import { renderCommentList } from "./render.js";
+// import { getCommentFetch } from "./API.js";
 // import { addCommentBtn } from "./eventListeners.js";
-import { renderAutharizationForm, login } from "./renderAutharizationForm.js";
+// import { renderAutharizationForm } from "./renderAutharizationForm.js";
+import { onLoad } from "./onLoad.js";
 
+onLoad();
 
-renderCommentList();
+// renderCommentList();
+// renderAutharizationForm();
 
-getCommentFetch();
+// getCommentFetch();
 // addCommentBtn();
-renderAutharizationForm();
-login();
-console.log("It works!");
+
+// console.log("It works!");

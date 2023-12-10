@@ -1,6 +1,8 @@
 import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
 import { renderCommentList, commentList } from "./render.js";
 import { addCommentFetch } from "./API.js";
+import { renderAutharizationForm } from "./renderAutharizationForm.js";
+
 
 export function clickAddButton() {
 
@@ -73,3 +75,14 @@ export function replyCommentFunction() {
   }
 };
 
+export function onAuthTextClick() {
+  const authTextElement = document.querySelector('.auth-text');
+
+  authTextElement.addEventListener('click', () => {
+
+    authTextElement.classList.add('hidden');
+    renderAutharizationForm();
+
+    
+  })
+}
