@@ -38,67 +38,13 @@ export function renderAutharizationForm() {
   
           return setToken(responseData.user.token);
         
+        }).then(() => {
+
+          authFormElement.style.display = 'none';
         })
         
-
     });
   }
   login();
-  authFormElement.classList.add('hidden');
+  
 };
-
-// export function autharization() {
-//   const authNameFormElement = document.querySelector('.auth-form-name');
-//   const authFormPassElement = document.querySelector('.auth-form-pass');
-//   return fetch("https://wedev-api.sky.pro/api/user/login", {
-
-//     method: "POST",
-//     body: JSON.stringify({
-//       login: authNameFormElement.value,
-//       password: authFormPassElement.value,
-//     }),
-//   })
-//     .then((response) => {
-
-//       if (response.status === 201) {
-//         return response.json();
-
-//       } else if (response.status === 400) {
-
-//         throw new Error('Неверный логин или пароль');
-
-//       } else {
-
-//         throw new Error('Что-то пошло не так, попробуйте еще раз');
-//       }
-//     })
-    
-//     .catch((error) => {
-//       alert(error);
-//     });
-
-// }
-
-// export function login() {
-//   const authFormBtnElement = document.querySelector('.auth-form-button');
-//   const authNameFormElement = document.querySelector('.auth-form-name');
-//   const authFormPassElement = document.querySelector('.auth-form-pass');
-  
-  
-//   authFormBtnElement.addEventListener('click', () => {
-//     autharization(
-//       {
-//       login: authNameFormElement.value,
-//       password: authFormPassElement.value,
-//     }
-//     )
-//       .then((responseData) => {
-
-//         setToken(responseData.user.token);
-
-//       });
-//   });
-// }
-
-
-
