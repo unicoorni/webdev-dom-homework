@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 80px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
     background: #202020;
     min-height: 100vh;
     white-space: pre-line;
@@ -162,12 +162,22 @@ body {
     white-space: pre-line;
   }
 
+  .auth-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .auth-form {
     padding: 20px;
     /* margin-top: 48px; */
     display: flex;
     flex-direction: column;
     background-color: #7334ea;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 596px;
+    align-items: center;
     
   }
 
@@ -176,11 +186,20 @@ body {
     font-family: Helvetica;
     border-radius: 8px;
     border: none;
+    width: 300px;
+    margin-bottom: 10px ;
+    height: 30px;
+
   }
 
-  .auth-form-name {
+  .auth-form-pass {
     width: 300px;
-    padding: 11px 22px;
+    font-size: 16px;
+    font-family: Helvetica;
+    border-radius: 8px;
+    border: none;
+    height: 30px;
+
   }
 
 

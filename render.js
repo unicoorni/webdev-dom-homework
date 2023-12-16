@@ -1,44 +1,44 @@
-import { likerFunction, replyCommentFunction } from "./eventListeners.js";
+// import { likerFunction, replyCommentFunction } from "./eventListeners.js";
 
 
-export let commentList = [];
+// export let commentList = [];
 
-export function changeCommentList(changingElement) {
-  commentList = changingElement;
-};
-
-
-export function renderCommentList() {
-  let list = document.querySelector('.comments');
-
-  let commentListHTML = commentList.map((comment, index) => {
+// export function changeCommentList(changingElement) {
+//   commentList = changingElement;
+// };
 
 
-    return `<li class="comment">
-            <div class="comment-header">
-              <div class = "userName">${comment.user}</div>
-              <div>${comment.userDate.toLocaleString()}</div>
-            </div>
+// export function renderCommentList() {
+//   let list = document.querySelector('.comments');
+
+//   let commentListHTML = commentList.map((comment, index) => {
+
+
+//     return `<li class="comment">
+//             <div class="comment-header">
+//               <div class = "userName">${comment.user}</div>
+//               <div>${comment.userDate.toLocaleString()}</div>
+//             </div>
   
-            <div class="comment-body">
-              <div class="comment-text" data-index="${index}">
-                ${comment.userComment}
-              </div>
-            </div>
-            <div class="comment-footer">
-              <div class="likes">
-                <span class="likes-counter">${comment.likesCounter ? comment.likesCounter : comment.likesCounter = 0}</span>
-                <button class="like-button ${comment.isActiveLike ? '-active-like' : ''}"
-                 data-index="${index}"></button>
-              </div>
-            </div>
-          </li>`;
-  }).join('');
+//             <div class="comment-body">
+//               <div class="comment-text" data-index="${index}">
+//                 ${comment.userComment}
+//               </div>
+//             </div>
+//             <div class="comment-footer">
+//               <div class="likes">
+//                 <span class="likes-counter">${comment.likesCounter ? comment.likesCounter : comment.likesCounter = 0}</span>
+//                 <button class="like-button ${comment.isActiveLike ? '-active-like' : ''}"
+//                  data-index="${index}"></button>
+//               </div>
+//             </div>
+//           </li>`;
+//   }).join('');
 
-  list.innerHTML = commentListHTML;
-  likerFunction();
-  replyCommentFunction();
-};
+//   list.innerHTML = commentListHTML;
+//   likerFunction();
+//   replyCommentFunction();
+// };
 
 
 

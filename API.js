@@ -1,5 +1,7 @@
-import { renderCommentList, changeCommentList } from "./render.js";
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText, loadEl } from "./vars.js";
+import { renderCommentList, changeCommentList } from "./renderAddCommentForm.js";
+import { addForm, addFormName, addFormText, commentLoad} from "./renderAddCommentForm.js";
+// import { addFormBtn } from "./renderAddCommentForm.js";
+
 
 export let token = 0;
 
@@ -40,7 +42,7 @@ export function getCommentFetch() {
       changeCommentList(appComments);
 
       renderCommentList();
-      loadEl.classList.add('hidden');
+      // loadEl.classList.add('hidden');
     })
     .catch((error) => {
       alert(error);
@@ -80,6 +82,8 @@ export function addCommentFetch() {
 
     })
     .finally(() => {
+      const addFormBtn = document.querySelector('.add-form-button');
+
       addForm.classList.remove('hidden');
       addFormBtn.disabled = false;
       commentLoad.classList.add('hidden');

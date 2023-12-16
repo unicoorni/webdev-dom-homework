@@ -1,35 +1,35 @@
-import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
-import { renderCommentList, commentList } from "./render.js";
-import { addCommentFetch } from "./API.js";
+// import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
+import { renderCommentList, commentList } from "./renderAddCommentForm.js";
+// import { addCommentFetch } from "./API.js";
 import { renderAutharizationForm } from "./renderAutharizationForm.js";
 
 
-export function clickAddButton() {
+// export function clickAddButton() {
 
-  addFormName.classList.remove('form-error');
-  addFormText.classList.remove('form-error');
+//   addFormName.classList.remove('form-error');
+//   addFormText.classList.remove('form-error');
 
-  if (addFormName.value === '') {
-    addFormName.classList.add('form-error');
-    return;
-  }
+//   if (addFormName.value === '') {
+//     addFormName.classList.add('form-error');
+//     return;
+//   }
 
-  else if (addFormText.value === '') {
-    addFormText.classList.add('form-error');
-    return;
-  }
-  addFormBtn.disabled = true;
+//   else if (addFormText.value === '') {
+//     addFormText.classList.add('form-error');
+//     return;
+//   }
+//   addFormBtn.disabled = true;
 
-  addCommentFetch();
+//   addCommentFetch();
 
-  addForm.classList.add('hidden');
-  commentLoad.classList.remove('hidden');
-};
+//   addForm.classList.add('hidden');
+//   commentLoad.classList.remove('hidden');
+// };
 
-export function addCommentBtn() {
+// export function addCommentBtn() {
 
-  addFormBtn.addEventListener('click', clickAddButton);
-};
+//   addFormBtn.addEventListener('click', clickAddButton);
+// };
 
 export function likerFunction() {
 

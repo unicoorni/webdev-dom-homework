@@ -1,4 +1,12 @@
-import { setToken, autharization } from "./API.js";
+import { setToken, autharization, token } from "./API.js";
+// import { renderCommentList } from "./render.js";
+import { renderAddCommentForm } from "./renderAddCommentForm.js";
+import { getCommentFetch } from "./API.js";
+
+
+// import { onLoad } from "./onLoad.js";
+
+
 
 export function renderAutharizationForm() {
   const authContainerElement = document.querySelector('.auth-container');
@@ -8,7 +16,7 @@ export function renderAutharizationForm() {
     maxlength="50" 
     class="auth-form-name" 
     placeholder="Введите логин" />
-    <input type="text" 
+    <input type="password" 
     maxlength="50" 
     class="auth-form-pass" 
     placeholder="Введите пароль"/>
@@ -35,12 +43,16 @@ export function renderAutharizationForm() {
       }
       )
         .then((responseData) => {
-  
+          
           return setToken(responseData.user.token);
         
         }).then(() => {
-
-          authFormElement.style.display = 'none';
+          // token ? onLoad() : authFormElement.style.display = 'block';
+          token ? (authFormElement.style.display = 'none', getCommentFetch(), renderAddCommentForm() ) : authFormElement.style.display = 'block';
+          
+          // authFormElement.style.display = 'none';
+          // token ?  (renderCommentList(), renderAddCommentForm() ):  onAuthTextClick();
+          
         })
         
     });

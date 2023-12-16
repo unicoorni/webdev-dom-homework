@@ -1,15 +1,17 @@
-// import { renderCommentList } from "./render.js";
-// import { getCommentFetch } from "./API.js";
+// import { renderCommentList } from "./render.js";c
+import { getCommentFetch } from "./API.js";
 // import { addCommentBtn } from "./eventListeners.js";
-// import { renderAutharizationForm } from "./renderAutharizationForm.js";
-import { onLoad } from "./onLoad.js";
+import { renderAutharizationForm } from "./renderAutharizationForm.js";
+import { onAuthTextClick } from "./eventListeners.js";
 
-onLoad();
+
+// onLoad();
 
 // renderCommentList();
 // renderAutharizationForm();
 
-// getCommentFetch();
+getCommentFetch();
+onAuthTextClick();
 // addCommentBtn();
-
+renderAutharizationForm();
 // console.log("It works!");
