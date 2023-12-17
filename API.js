@@ -1,5 +1,5 @@
 import { renderCommentList, changeCommentList } from "./renderAddCommentForm.js";
-import { addForm, addFormName, addFormText, commentLoad} from "./renderAddCommentForm.js";
+import { addForm, addFormName, addFormText, commentLoad } from "./renderAddCommentForm.js";
 // import { addFormBtn } from "./renderAddCommentForm.js";
 
 
@@ -51,7 +51,11 @@ export function getCommentFetch() {
 }
 
 
-export function addCommentFetch() {
+
+export function addCommentFetch({authName, commentText }) {
+
+  // const authName = addFormName.value;
+  // const commentText =  addFormText.value;
 
   fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
 
@@ -60,8 +64,8 @@ export function addCommentFetch() {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      text: addFormText.value,
-      name: addFormName.value,
+      text: commentText = addFormText.value,
+      name: authName = addFormName.value,
     }),
   })
     .then((response) => {
