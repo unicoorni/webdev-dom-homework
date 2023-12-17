@@ -3,7 +3,7 @@ import { addCommentFetch } from "./API.js";
 import { likerFunction, replyCommentFunction } from "./eventListeners.js";
 
 const addForm = document.querySelector('.add-form');
-// const addFormBtn = document.querySelector('.add-form-button');
+
 const addFormName = document.querySelector('.add-form-name');
 const addFormText = document.querySelector('.add-form-text');
 // const loadEl = document.querySelector('.load');
@@ -51,9 +51,10 @@ const addFormBtn = document.querySelector('.add-form-button');
     }
     addFormBtn.disabled = true;
 
-    addCommentFetch();
+    addCommentFetch({authName: addFormName.value, commentText: addFormText.value });
+    const addForm = document.querySelector('.add-form');
 
-    addForm.classList.add('hidden');
+    // addForm.classList.add('hidden');
     commentLoad.classList.remove('hidden');
   };
 

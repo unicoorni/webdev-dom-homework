@@ -54,9 +54,6 @@ export function getCommentFetch() {
 
 export function addCommentFetch({authName, commentText }) {
 
-  // const authName = addFormName.value;
-  // const commentText =  addFormText.value;
-
   fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
 
     method: "POST",
@@ -64,8 +61,8 @@ export function addCommentFetch({authName, commentText }) {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      text: commentText = addFormText.value,
-      name: authName = addFormName.value,
+      text: commentText,
+      name: authName,
     }),
   })
     .then((response) => {
@@ -88,7 +85,7 @@ export function addCommentFetch({authName, commentText }) {
     .finally(() => {
       const addFormBtn = document.querySelector('.add-form-button');
 
-      addForm.classList.remove('hidden');
+      // addForm.classList.remove('hidden');
       addFormBtn.disabled = false;
       commentLoad.classList.add('hidden');
 
