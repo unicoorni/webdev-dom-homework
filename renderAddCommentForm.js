@@ -1,6 +1,8 @@
 
 import { addCommentFetch, user } from "./API.js";
 import { likerFunction, replyCommentFunction } from "./eventListeners.js";
+// import { formatDateToRu, formatDateToUs } from "./lib/formatDate/formatDate.js"
+import { format } from "date-fns";
 
 const addForm = document.querySelector('.add-form');
 
@@ -62,9 +64,6 @@ const addFormBtn = document.querySelector('.add-form-button');
 
     const addForm = document.querySelector('.add-form');
 
-
-  
-    // addForm.classList.add('hidden');
     commentLoad.classList.remove('hidden');
   };
 
@@ -88,12 +87,14 @@ export function renderCommentList() {
   let list = document.querySelector('.comments');
 
   let commentListHTML = commentList.map((comment, index) => {
-
+    const createDate = format(comment.userDate, 'dd/MM/yyyy hh:mm');
 
     return `<li class="comment">
             <div class="comment-header">
               <div class = "userName">${comment.user}</div>
-              <div>${comment.userDate.toLocaleString()}</div>
+             
+              <div>${createDate}</div>
+           
             </div>
   
             <div class="comment-body">
