@@ -1,19 +1,20 @@
 import { renderCommentList, changeCommentList } from "./renderAddCommentForm.js";
 import { addForm, addFormName, addFormText, commentLoad } from "./renderAddCommentForm.js";
-// import { addFormBtn } from "./renderAddCommentForm.js";
 
 
-export let token = 0;
 
-export const setToken = (newToken) => {
+export let user = JSON.parse(window.localStorage.getItem("user")) || 0;
 
-  token = newToken;
+export const setUser = (newUser) => {
+
+  user = newUser;
+  window.localStorage.setItem('user', JSON.stringify(user));
 };
 
 export function getCommentFetch() {
   return fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${user.token}`,
     },
     method: "GET",
 
@@ -54,11 +55,11 @@ export function getCommentFetch() {
 
 export function addCommentFetch({authName, commentText }) {
 
-  fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
+  return fetch("https://wedev-api.sky.pro/api/v2/unicorni/comments", {
 
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${user.token}`,
     },
     body: JSON.stringify({
       text: commentText,
@@ -84,13 +85,9 @@ export function addCommentFetch({authName, commentText }) {
     })
     .finally(() => {
       const addFormBtn = document.querySelector('.add-form-button');
-
       // addForm.classList.remove('hidden');
       addFormBtn.disabled = false;
       commentLoad.classList.add('hidden');
-
-      addFormName.value = "";
-      addFormText.value = "";
 
     })
     .catch((error) => {

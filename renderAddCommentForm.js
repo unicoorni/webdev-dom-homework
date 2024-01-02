@@ -1,12 +1,12 @@
-// import { addCommentBtn } from "./eventListeners.js";
-import { addCommentFetch } from "./API.js";
+
+import { addCommentFetch, user } from "./API.js";
 import { likerFunction, replyCommentFunction } from "./eventListeners.js";
 
 const addForm = document.querySelector('.add-form');
 
 const addFormName = document.querySelector('.add-form-name');
 const addFormText = document.querySelector('.add-form-text');
-// const loadEl = document.querySelector('.load');
+
 const commentLoad = document.querySelector('.load-comment');
 const addcontainerElement = document.querySelector('.add-container');
 const addFormBtn = document.querySelector('.add-form-button');
@@ -14,12 +14,12 @@ const addFormBtn = document.querySelector('.add-form-button');
 export { addForm, addFormName, addFormText, commentLoad, addFormBtn };
 
 
-export function renderAddCommentForm() {
-  // const containerElement = document.querySelector('.container');
+export function renderAddCommentForm(user) {
+
 
   const addFormHtml = `
     <div class="add-form">
-      <input type="text" maxlength="50" class="add-form-name" placeholder="Введите ваше имя" />
+      <input type="text" maxlength="50" class="add-form-name" placeholder="Введите ваше имя" value="${user.name}" readonly/>
       <textarea type="textarea" class="add-form-text" placeholder="Введите ваш коментарий" rows="4"></textarea>
       <div class="add-form-row">
         <button class="add-form-button">Написать</button>
@@ -51,9 +51,19 @@ const addFormBtn = document.querySelector('.add-form-button');
     }
     addFormBtn.disabled = true;
 
-    addCommentFetch({authName: addFormName.value, commentText: addFormText.value });
+    addCommentFetch({authName: addFormName.value, commentText: addFormText.value })
+    .then( () => {
+      const addFormName = document.querySelector('.add-form-name');
+      const addFormText = document.querySelector('.add-form-text');
+  
+      addFormName.value = "";
+      addFormText.value = "";
+    });
+
     const addForm = document.querySelector('.add-form');
 
+
+  
     // addForm.classList.add('hidden');
     commentLoad.classList.remove('hidden');
   };

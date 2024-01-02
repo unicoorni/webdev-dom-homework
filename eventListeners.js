@@ -1,35 +1,7 @@
-// import { addFormBtn, commentLoad, addForm, addFormName, addFormText } from "./vars.js";
 import { renderCommentList, commentList } from "./renderAddCommentForm.js";
-// import { addCommentFetch } from "./API.js";
+
 import { renderAutharizationForm } from "./renderAutharizationForm.js";
 
-
-// export function clickAddButton() {
-
-//   addFormName.classList.remove('form-error');
-//   addFormText.classList.remove('form-error');
-
-//   if (addFormName.value === '') {
-//     addFormName.classList.add('form-error');
-//     return;
-//   }
-
-//   else if (addFormText.value === '') {
-//     addFormText.classList.add('form-error');
-//     return;
-//   }
-//   addFormBtn.disabled = true;
-
-//   addCommentFetch();
-
-//   addForm.classList.add('hidden');
-//   commentLoad.classList.remove('hidden');
-// };
-
-// export function addCommentBtn() {
-
-//   addFormBtn.addEventListener('click', clickAddButton);
-// };
 
 export function likerFunction() {
 
@@ -79,6 +51,9 @@ export function onAuthTextClick() {
   const authTextElement = document.querySelector('.auth-text');
 
   authTextElement.addEventListener('click', () => {
+
+    const comments = document.querySelector('.comments');
+    comments.classList.add('hidden');
 
     authTextElement.classList.add('hidden');
     renderAutharizationForm();

@@ -1,11 +1,6 @@
-import { setToken, autharization, token } from "./API.js";
-// import { renderCommentList } from "./render.js";
+import { setUser, autharization, user } from "./API.js";
 import { renderAddCommentForm } from "./renderAddCommentForm.js";
 import { getCommentFetch } from "./API.js";
-
-
-// import { onLoad } from "./onLoad.js";
-
 
 
 export function renderAutharizationForm() {
@@ -44,15 +39,20 @@ export function renderAutharizationForm() {
       )
         .then((responseData) => {
           
-          return setToken(responseData.user.token);
+          return setUser(responseData.user);
         
         }).then(() => {
           // token ? onLoad() : authFormElement.style.display = 'block';
-          token ? (authFormElement.style.display = 'none', getCommentFetch(), renderAddCommentForm() ) : authFormElement.style.display = 'block';
           
-          // authFormElement.style.display = 'none';
-          // token ?  (renderCommentList(), renderAddCommentForm() ):  onAuthTextClick();
-          
+          if (user.token) {
+            authFormElement.style.display = 'none'; 
+            getCommentFetch();
+            renderAddCommentForm(user);
+            const comments = document.querySelector('.comments');
+            comments.classList.remove('hidden');
+          } else {
+            authFormElement.style.display = 'block';
+          }  
         })
         
     });
